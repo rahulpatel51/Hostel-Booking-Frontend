@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { FiCheckCircle, FiX, FiCalendar, FiUser, FiPhone, FiMail, FiBook, FiHome, FiStar, FiAlertCircle } from "react-icons/fi";
+import { API_URL } from "@/lib/api";
 
 interface Room {
   _id: string;
@@ -360,7 +361,7 @@ export default function RoomsPage() {
   useEffect(() => {
     const fetchRooms = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/rooms");
+        const response = await fetch(`${API_URL}/api/rooms`);
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         
         const data = await response.json();
